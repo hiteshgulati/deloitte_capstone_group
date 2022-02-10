@@ -13981,13 +13981,16 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[355]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[362]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">chained_assignment</span> <span class="o">=</span> <span class="kc">None</span> 
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
 </pre></div>
 
      </div>
@@ -14003,7 +14006,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[356]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[363]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Car_sales_transactions.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="n">header</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin&#39;</span><span class="p">)</span>
@@ -14023,7 +14026,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[356]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[363]:</div>
 
 
 
@@ -14174,7 +14177,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[357]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[364]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">shape</span>
@@ -14193,7 +14196,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[357]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[364]:</div>
 
 
 
@@ -14216,7 +14219,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[358]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[365]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">columns</span>
@@ -14235,7 +14238,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[358]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[365]:</div>
 
 
 
@@ -14261,7 +14264,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[359]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[366]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales_status</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Sales_Status.csv&#39;</span><span class="p">)</span>
@@ -14290,7 +14293,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[359]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[366]:</div>
 
 
 
@@ -14477,7 +14480,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[360]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[367]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -14544,7 +14547,7 @@ memory usage: 1.3+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[361]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[368]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="p">[</span><span class="s1">&#39;Mileage_float&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_data</span><span class="p">[</span><span class="s1">&#39;Mileage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
@@ -14568,7 +14571,7 @@ memory usage: 1.3+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[362]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[369]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -14648,7 +14651,7 @@ memory usage: 1.5+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[363]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[370]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold ==&#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sold&#39;</span><span class="p">,</span><span class="s1">&#39;Fuel&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Mileage_float&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="s1">&#39;Power&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Fuel&#39;</span><span class="p">],</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
@@ -14667,7 +14670,7 @@ memory usage: 1.5+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[363]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[370]:</div>
 
 
 
@@ -14737,12 +14740,12 @@ memory usage: 1.5+ MB
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="Then-Comapred-the-Fuel-with-the-Selling-Price-and-Car-Driven">Then Comapred the Fuel with the Selling Price and Car Driven<a class="anchor-link" href="#Then-Comapred-the-Fuel-with-the-Selling-Price-and-Car-Driven">&#182;</a></h5><h5 id="We-Concluded-that-Selling-Prove-of-Cars-are-more-which-are-having-more-Power-and-Selling-Price-of-Diseled-Car-is-more.">We Concluded that Selling Prove of Cars are more which are having more Power and Selling Price of Diseled Car is more.<a class="anchor-link" href="#We-Concluded-that-Selling-Prove-of-Cars-are-more-which-are-having-more-Power-and-Selling-Price-of-Diseled-Car-is-more.">&#182;</a></h5>
+<h5 id="Then-Comapred-the-Fuel-with-the-Selling-Price-and-Car-Driven">Then Comapred the Fuel with the Selling Price and Car Driven<a class="anchor-link" href="#Then-Comapred-the-Fuel-with-the-Selling-Price-and-Car-Driven">&#182;</a></h5><h5 id="We-Concluded-that-Selling-Price-of-Cars-are-more-which-are-having-more-Power-and-Selling-Price-of-Diseled-Car-is-more.">We Concluded that Selling Price of Cars are more which are having more Power and Selling Price of Diseled Car is more.<a class="anchor-link" href="#We-Concluded-that-Selling-Price-of-Cars-are-more-which-are-having-more-Power-and-Selling-Price-of-Diseled-Car-is-more.">&#182;</a></h5>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[364]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[371]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Fuel&#39;</span><span class="p">,</span><span class="s1">&#39;Sold&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Mileage_float&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="s1">&#39;Power&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="s1">&#39;km_Driven&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Fuel&#39;</span><span class="p">],</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
@@ -14761,7 +14764,7 @@ memory usage: 1.5+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[364]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[371]:</div>
 
 
 
@@ -14874,12 +14877,12 @@ memory usage: 1.5+ MB
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="Which-type-of-fueled-cars-are-Sold-more-?">Which type of fueled cars are Sold more ?<a class="anchor-link" href="#Which-type-of-fueled-cars-are-Sold-more-?">&#182;</a></h5><h5 id="if-comparing-the-more-number-of-cars-sold-are-of-Diesel-but-if-we-compare-the-percentage-with-the-sold-cars-of-individual-Fuels-then-Petroled-Cars-sold-more.">if comparing the more number of cars sold are of Diesel but if we compare the percentage with the sold cars of individual Fuels then Petroled Cars sold more.<a class="anchor-link" href="#if-comparing-the-more-number-of-cars-sold-are-of-Diesel-but-if-we-compare-the-percentage-with-the-sold-cars-of-individual-Fuels-then-Petroled-Cars-sold-more.">&#182;</a></h5>
+<h5 id="Which-type-of-fueled-cars-are-Sold-more-?">Which type of fueled cars are Sold more ?<a class="anchor-link" href="#Which-type-of-fueled-cars-are-Sold-more-?">&#182;</a></h5><h5 id="If-comparing-the-more-number-of-cars-sold-are-of-Diesel-but-if-we-compare-the-percentage-with-the-sold-cars-of-individual-Fuels-then-Petroled-Cars-sold-more.">If comparing the more number of cars sold are of Diesel but if we compare the percentage with the sold cars of individual Fuels then Petroled Cars sold more.<a class="anchor-link" href="#If-comparing-the-more-number-of-cars-sold-are-of-Diesel-but-if-we-compare-the-percentage-with-the-sold-cars-of-individual-Fuels-then-Petroled-Cars-sold-more.">&#182;</a></h5>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[365]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[372]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">group_column</span> <span class="o">=</span> <span class="s1">&#39;Fuel&#39;</span>
@@ -14994,7 +14997,7 @@ memory usage: 1.5+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[366]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[373]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">brand</span> <span class="o">=</span> <span class="n">car_data</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">expand</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -15015,10 +15018,10 @@ memory usage: 1.5+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[367]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[374]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Brand&#39;</span><span class="p">,</span><span class="s1">&#39;Fuel&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Fuel&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Brand&#39;</span><span class="p">,</span><span class="s1">&#39;Fuel&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Fuel&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">})</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Fuel&#39;</span><span class="p">:</span><span class="s1">&#39;No of sold Cars&#39;</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -15034,7 +15037,7 @@ memory usage: 1.5+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[367]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[374]:</div>
 
 
 
@@ -15058,7 +15061,7 @@ memory usage: 1.5+ MB
     <tr style="text-align: right;">
       <th></th>
       <th></th>
-      <th>Fuel</th>
+      <th>No of sold Cars</th>
     </tr>
     <tr>
       <th>Brand</th>
@@ -15297,7 +15300,7 @@ memory usage: 1.5+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[368]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[375]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Brand&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Sold&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">})</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Sold&#39;</span><span class="p">:</span><span class="s1">&#39;NoOfCarsSold&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;NoOfCarsSold&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -15316,7 +15319,7 @@ memory usage: 1.5+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[368]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[375]:</div>
 
 
 
@@ -15474,7 +15477,7 @@ memory usage: 1.5+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[369]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[376]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#No of cars sold brandwise on each region by brand</span>
@@ -15494,7 +15497,7 @@ memory usage: 1.5+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[369]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[376]:</div>
 
 
 
@@ -15716,7 +15719,7 @@ memory usage: 1.5+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[370]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[377]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_sold</span> <span class="o">=</span> <span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Brand&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="s1">&#39;Sold&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">,</span><span class="s1">&#39;Brand&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -15724,7 +15727,8 @@ memory usage: 1.5+ MB
 <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">car_sold</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
     <span class="n">car_sold</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">][</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_data</span><span class="p">[</span><span class="n">car_data</span><span class="p">[</span><span class="s1">&#39;Brand&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">car_sold</span><span class="p">[</span><span class="s1">&#39;Brand&#39;</span><span class="p">][</span><span class="n">ind</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">car_sold</span><span class="p">[</span><span class="s1">&#39;Percentage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">car_sold</span><span class="p">[</span><span class="s1">&#39;Sold&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">car_sold</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
-<span class="n">car_sold</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Percentage&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">car_sold</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_sold</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">100000</span>
+<span class="n">car_sold</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:</span><span class="s1">&#39;Selling_Price (in lakhs)&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Percentage&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15740,7 +15744,7 @@ memory usage: 1.5+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[370]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[377]:</div>
 
 
 
@@ -15764,7 +15768,7 @@ memory usage: 1.5+ MB
     <tr style="text-align: right;">
       <th></th>
       <th>Brand</th>
-      <th>Selling_Price</th>
+      <th>Selling_Price (in lakhs)</th>
       <th>Sold</th>
       <th>Total</th>
       <th>Percentage</th>
@@ -15774,7 +15778,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>0</th>
       <td>MG</td>
-      <td>1.825000e+06</td>
+      <td>18.250000</td>
       <td>2</td>
       <td>3</td>
       <td>66.666667</td>
@@ -15782,7 +15786,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>1</th>
       <td>Kia</td>
-      <td>1.271500e+06</td>
+      <td>12.715000</td>
       <td>2</td>
       <td>4</td>
       <td>50.000000</td>
@@ -15790,7 +15794,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>2</th>
       <td>Nissan</td>
-      <td>4.209696e+05</td>
+      <td>4.209696</td>
       <td>33</td>
       <td>81</td>
       <td>40.740741</td>
@@ -15798,7 +15802,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>3</th>
       <td>Daewoo</td>
-      <td>1.000000e+05</td>
+      <td>1.000000</td>
       <td>1</td>
       <td>3</td>
       <td>33.333333</td>
@@ -15806,7 +15810,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>4</th>
       <td>Lexus</td>
-      <td>5.150000e+06</td>
+      <td>51.500000</td>
       <td>11</td>
       <td>34</td>
       <td>32.352941</td>
@@ -15814,7 +15818,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>5</th>
       <td>Mercedes-Benz</td>
-      <td>2.767188e+06</td>
+      <td>27.671875</td>
       <td>16</td>
       <td>54</td>
       <td>29.629630</td>
@@ -15822,7 +15826,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>6</th>
       <td>Jaguar</td>
-      <td>2.917857e+06</td>
+      <td>29.178571</td>
       <td>21</td>
       <td>71</td>
       <td>29.577465</td>
@@ -15830,7 +15834,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>7</th>
       <td>Jeep</td>
-      <td>2.551667e+06</td>
+      <td>25.516666</td>
       <td>9</td>
       <td>31</td>
       <td>29.032258</td>
@@ -15838,7 +15842,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>8</th>
       <td>Volvo</td>
-      <td>3.547368e+06</td>
+      <td>35.473684</td>
       <td>19</td>
       <td>67</td>
       <td>28.358209</td>
@@ -15846,7 +15850,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>9</th>
       <td>Toyota</td>
-      <td>1.085556e+06</td>
+      <td>10.855555</td>
       <td>126</td>
       <td>452</td>
       <td>27.876106</td>
@@ -15854,7 +15858,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>10</th>
       <td>Honda</td>
-      <td>5.825818e+05</td>
+      <td>5.825818</td>
       <td>124</td>
       <td>466</td>
       <td>26.609442</td>
@@ -15862,7 +15866,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>11</th>
       <td>Mahindra</td>
-      <td>5.583034e+05</td>
+      <td>5.583034</td>
       <td>201</td>
       <td>758</td>
       <td>26.517150</td>
@@ -15870,7 +15874,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>12</th>
       <td>Maruti</td>
-      <td>4.052320e+05</td>
+      <td>4.052320</td>
       <td>597</td>
       <td>2367</td>
       <td>25.221800</td>
@@ -15878,7 +15882,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>13</th>
       <td>Tata</td>
-      <td>3.694803e+05</td>
+      <td>3.694803</td>
       <td>178</td>
       <td>719</td>
       <td>24.756606</td>
@@ -15886,7 +15890,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>14</th>
       <td>Datsun</td>
-      <td>2.972499e+05</td>
+      <td>2.972499</td>
       <td>16</td>
       <td>65</td>
       <td>24.615385</td>
@@ -15894,7 +15898,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>15</th>
       <td>BMW</td>
-      <td>4.606552e+06</td>
+      <td>46.065517</td>
       <td>29</td>
       <td>118</td>
       <td>24.576271</td>
@@ -15902,7 +15906,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>16</th>
       <td>Renault</td>
-      <td>4.190357e+05</td>
+      <td>4.190357</td>
       <td>56</td>
       <td>228</td>
       <td>24.561404</td>
@@ -15910,7 +15914,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>17</th>
       <td>Hyundai</td>
-      <td>4.632590e+05</td>
+      <td>4.632590</td>
       <td>332</td>
       <td>1360</td>
       <td>24.411765</td>
@@ -15918,7 +15922,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>18</th>
       <td>Chevrolet</td>
-      <td>2.795000e+05</td>
+      <td>2.795000</td>
       <td>56</td>
       <td>230</td>
       <td>24.347826</td>
@@ -15926,7 +15930,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>19</th>
       <td>Ford</td>
-      <td>5.622282e+05</td>
+      <td>5.622282</td>
       <td>92</td>
       <td>388</td>
       <td>23.711340</td>
@@ -15934,7 +15938,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>20</th>
       <td>Audi</td>
-      <td>2.637778e+06</td>
+      <td>26.377777</td>
       <td>9</td>
       <td>40</td>
       <td>22.500000</td>
@@ -15942,7 +15946,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>21</th>
       <td>Mitsubishi</td>
-      <td>8.883333e+05</td>
+      <td>8.883333</td>
       <td>3</td>
       <td>14</td>
       <td>21.428571</td>
@@ -15950,7 +15954,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>22</th>
       <td>Volkswagen</td>
-      <td>4.924872e+05</td>
+      <td>4.924872</td>
       <td>39</td>
       <td>185</td>
       <td>21.081081</td>
@@ -15958,7 +15962,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>23</th>
       <td>Skoda</td>
-      <td>7.477499e+05</td>
+      <td>7.477499</td>
       <td>20</td>
       <td>104</td>
       <td>19.230769</td>
@@ -15966,7 +15970,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>24</th>
       <td>Force</td>
-      <td>9.100000e+05</td>
+      <td>9.100000</td>
       <td>1</td>
       <td>6</td>
       <td>16.666667</td>
@@ -15974,7 +15978,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>25</th>
       <td>Land</td>
-      <td>4.500000e+06</td>
+      <td>45.000000</td>
       <td>1</td>
       <td>6</td>
       <td>16.666667</td>
@@ -15982,7 +15986,7 @@ memory usage: 1.5+ MB
     <tr>
       <th>26</th>
       <td>Fiat</td>
-      <td>3.491667e+05</td>
+      <td>3.491667</td>
       <td>6</td>
       <td>41</td>
       <td>14.634146</td>
@@ -16006,16 +16010,15 @@ memory usage: 1.5+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[371]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[378]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_city</span> <span class="o">=</span> <span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;City_Name&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span><span class="s1">&#39;Sold&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># car_data.query(&quot;Sold == &#39;N&#39;&quot;).groupby([&#39;City_Name&#39;]).agg({&#39;Sold&#39;:np.size}).sort_values([&#39;Sold&#39;],ascending=False)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_city</span> <span class="o">=</span> <span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Region&#39;</span><span class="p">,</span><span class="s1">&#39;State_Name&#39;</span><span class="p">,</span><span class="s1">&#39;City_Name&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Sold&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Sold&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">car_city</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">car_city</span><span class="p">[</span><span class="s1">&#39;Percentage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">car_city</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-    <span class="n">car_city</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_data</span><span class="p">[</span><span class="n">car_data</span><span class="p">[</span><span class="s1">&#39;City_Name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">car_city</span><span class="p">[</span><span class="s1">&#39;Percentage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">car_city</span><span class="p">[</span><span class="s1">&#39;Sold&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">car_city</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
+    <span class="n">car_city</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_data</span><span class="p">[</span><span class="n">car_data</span><span class="p">[</span><span class="s1">&#39;City_Name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">index</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">car_city</span><span class="p">[</span><span class="s1">&#39;Percentage&#39;</span><span class="p">]</span><span class="o">=</span> <span class="p">(</span><span class="n">car_city</span><span class="p">[</span><span class="s1">&#39;Sold&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">car_city</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span>
 <span class="n">car_city</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Percentage&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
@@ -16032,7 +16035,7 @@ memory usage: 1.5+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[371]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[378]:</div>
 
 
 
@@ -16055,14 +16058,16 @@ memory usage: 1.5+ MB
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Selling_Price</th>
+      <th></th>
+      <th></th>
       <th>Sold</th>
       <th>Total</th>
       <th>Percentage</th>
     </tr>
     <tr>
+      <th>Region</th>
+      <th>State_Name</th>
       <th>City_Name</th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -16070,204 +16075,226 @@ memory usage: 1.5+ MB
   </thead>
   <tbody>
     <tr>
+      <th>South</th>
+      <th>Karnataka</th>
       <th>Mysore</th>
-      <td>6.556627e+05</td>
       <td>83</td>
       <td>279</td>
       <td>29.749104</td>
     </tr>
     <tr>
+      <th>West</th>
+      <th>Gujarat</th>
       <th>Surat</th>
-      <td>7.000857e+05</td>
       <td>70</td>
       <td>242</td>
       <td>28.925620</td>
     </tr>
     <tr>
+      <th rowspan="3" valign="top">South</th>
+      <th>Tamil Nadu</th>
       <th>Vellore</th>
-      <td>6.083580e+05</td>
       <td>81</td>
       <td>293</td>
       <td>27.645051</td>
     </tr>
     <tr>
+      <th>Telangana</th>
       <th>Hyderabad</th>
-      <td>6.706111e+05</td>
       <td>72</td>
       <td>262</td>
       <td>27.480916</td>
     </tr>
     <tr>
+      <th>Karnataka</th>
       <th>Mangalore</th>
-      <td>5.836993e+05</td>
       <td>76</td>
       <td>279</td>
       <td>27.240143</td>
     </tr>
     <tr>
-      <th>Patna</th>
-      <td>6.719564e+05</td>
-      <td>69</td>
-      <td>257</td>
-      <td>26.848249</td>
-    </tr>
-    <tr>
-      <th>Gangtok</th>
-      <td>6.306521e+05</td>
-      <td>69</td>
-      <td>257</td>
-      <td>26.848249</td>
-    </tr>
-    <tr>
+      <th>Central</th>
+      <th>Madhya Pradesh</th>
       <th>Indore</th>
-      <td>6.509565e+05</td>
       <td>69</td>
       <td>257</td>
       <td>26.848249</td>
     </tr>
     <tr>
+      <th>North East</th>
+      <th>Sikkim</th>
+      <th>Gangtok</th>
+      <td>69</td>
+      <td>257</td>
+      <td>26.848249</td>
+    </tr>
+    <tr>
+      <th>East</th>
+      <th>Bihar</th>
+      <th>Patna</th>
+      <td>69</td>
+      <td>257</td>
+      <td>26.848249</td>
+    </tr>
+    <tr>
+      <th>Central</th>
+      <th>Uttar Pradesh</th>
       <th>Noida</th>
-      <td>6.546125e+05</td>
       <td>80</td>
       <td>303</td>
       <td>26.402640</td>
     </tr>
     <tr>
+      <th>East</th>
+      <th>Jharkhand</th>
       <th>Jamshedpur</th>
-      <td>8.353846e+05</td>
       <td>65</td>
       <td>247</td>
       <td>26.315789</td>
     </tr>
     <tr>
+      <th>Central</th>
+      <th>Uttar Pradesh</th>
       <th>kanpur</th>
-      <td>6.035000e+05</td>
       <td>65</td>
       <td>247</td>
       <td>26.315789</td>
     </tr>
     <tr>
+      <th>South</th>
+      <th>Tamil Nadu</th>
       <th>Coimbatore</th>
-      <td>6.929999e+05</td>
       <td>77</td>
       <td>294</td>
       <td>26.190476</td>
     </tr>
     <tr>
+      <th rowspan="2" valign="top">West</th>
+      <th>Gujarat</th>
       <th>Ahmedabad</th>
-      <td>7.435972e+05</td>
       <td>72</td>
       <td>278</td>
       <td>25.899281</td>
     </tr>
     <tr>
+      <th>Maharashtra</th>
       <th>Mumbai</th>
-      <td>4.952337e+05</td>
       <td>77</td>
       <td>298</td>
       <td>25.838926</td>
     </tr>
     <tr>
+      <th>East</th>
+      <th>West Bengal</th>
       <th>Kolkata</th>
-      <td>7.672028e+05</td>
       <td>69</td>
       <td>268</td>
       <td>25.746269</td>
     </tr>
     <tr>
+      <th>North</th>
+      <th>Punjab</th>
       <th>Ludhiana</th>
-      <td>6.293651e+05</td>
       <td>63</td>
       <td>249</td>
       <td>25.301205</td>
     </tr>
     <tr>
+      <th rowspan="2" valign="top">South</th>
+      <th>Tamil Nadu</th>
       <th>Chennai</th>
-      <td>6.777916e+05</td>
       <td>72</td>
       <td>285</td>
       <td>25.263158</td>
     </tr>
     <tr>
+      <th>Kerala</th>
       <th>Thrissur</th>
-      <td>6.918235e+05</td>
       <td>68</td>
       <td>270</td>
       <td>25.185185</td>
     </tr>
     <tr>
+      <th>East</th>
+      <th>Odisha</th>
       <th>Bhubaneshwar</th>
-      <td>6.320000e+05</td>
       <td>64</td>
       <td>255</td>
       <td>25.098039</td>
     </tr>
     <tr>
+      <th>Central</th>
+      <th>Uttarakhand</th>
       <th>Dehradun</th>
-      <td>6.869286e+05</td>
       <td>70</td>
       <td>280</td>
       <td>25.000000</td>
     </tr>
     <tr>
+      <th>North</th>
       <th>Delhi</th>
-      <td>7.387624e+05</td>
+      <th>Delhi</th>
       <td>80</td>
       <td>320</td>
       <td>25.000000</td>
     </tr>
     <tr>
+      <th>West</th>
+      <th>Gujarat</th>
       <th>Vadodara</th>
-      <td>5.926060e+05</td>
       <td>66</td>
       <td>272</td>
       <td>24.264706</td>
     </tr>
     <tr>
+      <th rowspan="2" valign="top">South</th>
+      <th>Andhra Pradesh</th>
       <th>Nellore</th>
-      <td>1.098956e+06</td>
       <td>68</td>
       <td>281</td>
       <td>24.199288</td>
     </tr>
     <tr>
+      <th>Karnataka</th>
       <th>Bangalore</th>
-      <td>6.945938e+05</td>
       <td>64</td>
       <td>276</td>
       <td>23.188406</td>
     </tr>
     <tr>
+      <th>East</th>
+      <th>Jharkhand</th>
       <th>Ranchi</th>
-      <td>6.686774e+05</td>
       <td>62</td>
       <td>276</td>
       <td>22.463768</td>
     </tr>
     <tr>
+      <th>South</th>
+      <th>Kerala</th>
       <th>Kochi</th>
-      <td>6.389032e+05</td>
       <td>62</td>
       <td>279</td>
       <td>22.222222</td>
     </tr>
     <tr>
+      <th rowspan="2" valign="top">West</th>
+      <th rowspan="2" valign="top">Maharashtra</th>
       <th>Aurangabad</th>
-      <td>6.602999e+05</td>
       <td>60</td>
       <td>278</td>
       <td>21.582734</td>
     </tr>
     <tr>
       <th>Pune</th>
-      <td>6.276154e+05</td>
       <td>52</td>
       <td>250</td>
       <td>20.800000</td>
     </tr>
     <tr>
+      <th>North</th>
+      <th>Rajasthan</th>
       <th>Jaipur</th>
-      <td>6.179000e+05</td>
       <td>55</td>
       <td>274</td>
       <td>20.072993</td>
@@ -16286,546 +16313,7 @@ memory usage: 1.5+ MB
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Q5-How-Selling-Price-of-Cars-are-related-with-time-(Year)">Q5 How Selling Price of Cars are related with time (Year)<a class="anchor-link" href="#Q5-How-Selling-Price-of-Cars-are-related-with-time-(Year)">&#182;</a></h3><h5 id="As-per-the-below-query-we-saw-with-the-increae-in-th-number-of-sold-Cars-selling-Price-of-Cars-also-increased-with-time.">As per the below query we saw with the increae in th number of sold Cars selling Price of Cars also increased with time.<a class="anchor-link" href="#As-per-the-below-query-we-saw-with-the-increae-in-th-number-of-sold-Cars-selling-Price-of-Cars-also-increased-with-time.">&#182;</a></h5>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[372]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_year</span> <span class="o">=</span> <span class="n">car_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
-<span class="n">car_sold_year</span> <span class="o">=</span> <span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Sold&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
-<span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff_per&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">prv</span> <span class="o">=</span> <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">index</span> <span class="o">=</span> <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>
-<span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">car_year</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-    <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">])</span><span class="o">-</span><span class="n">prv</span>
-    <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff_per&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">((</span><span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span><span class="o">/</span><span class="n">prv</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span>
-    <span class="n">prv</span> <span class="o">=</span> <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
-<span class="n">car_year</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39; and Year == index&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Cars_Sold&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">car_year</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">car_sold_year</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-        <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Cars_Sold&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_sold_year</span><span class="p">[</span><span class="s1">&#39;Sold&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
-<span class="n">car_year</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-    
-<span class="n">car_year</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[372]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Selling_Price</th>
-      <th>Selling_Price_diff</th>
-      <th>Selling_Price_diff_per</th>
-      <th>Cars_Sold</th>
-    </tr>
-    <tr>
-      <th>Year</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2020</th>
-      <td>8.852702e+05</td>
-      <td>-891716</td>
-      <td>-50</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>2019</th>
-      <td>1.776986e+06</td>
-      <td>818802</td>
-      <td>85</td>
-      <td>154</td>
-    </tr>
-    <tr>
-      <th>2018</th>
-      <td>9.581836e+05</td>
-      <td>67990</td>
-      <td>7</td>
-      <td>187</td>
-    </tr>
-    <tr>
-      <th>2017</th>
-      <td>8.901930e+05</td>
-      <td>189875</td>
-      <td>27</td>
-      <td>256</td>
-    </tr>
-    <tr>
-      <th>2016</th>
-      <td>7.003177e+05</td>
-      <td>103547</td>
-      <td>17</td>
-      <td>225</td>
-    </tr>
-    <tr>
-      <th>2015</th>
-      <td>5.967703e+05</td>
-      <td>80094</td>
-      <td>15</td>
-      <td>200</td>
-    </tr>
-    <tr>
-      <th>2014</th>
-      <td>5.166757e+05</td>
-      <td>56011</td>
-      <td>12</td>
-      <td>144</td>
-    </tr>
-    <tr>
-      <th>2013</th>
-      <td>4.606646e+05</td>
-      <td>107521</td>
-      <td>30</td>
-      <td>174</td>
-    </tr>
-    <tr>
-      <th>2012</th>
-      <td>3.531433e+05</td>
-      <td>31046</td>
-      <td>9</td>
-      <td>159</td>
-    </tr>
-    <tr>
-      <th>2011</th>
-      <td>3.220964e+05</td>
-      <td>48085</td>
-      <td>17</td>
-      <td>155</td>
-    </tr>
-    <tr>
-      <th>2010</th>
-      <td>2.740106e+05</td>
-      <td>45201</td>
-      <td>19</td>
-      <td>96</td>
-    </tr>
-    <tr>
-      <th>2009</th>
-      <td>2.288095e+05</td>
-      <td>23249</td>
-      <td>11</td>
-      <td>71</td>
-    </tr>
-    <tr>
-      <th>2008</th>
-      <td>2.055598e+05</td>
-      <td>26453</td>
-      <td>14</td>
-      <td>43</td>
-    </tr>
-    <tr>
-      <th>2007</th>
-      <td>1.791065e+05</td>
-      <td>8644</td>
-      <td>5</td>
-      <td>28</td>
-    </tr>
-    <tr>
-      <th>2006</th>
-      <td>1.704622e+05</td>
-      <td>26705</td>
-      <td>18</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <th>2005</th>
-      <td>1.437566e+05</td>
-      <td>34347</td>
-      <td>31</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>2004</th>
-      <td>1.094089e+05</td>
-      <td>7836</td>
-      <td>7</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>2003</th>
-      <td>1.015729e+05</td>
-      <td>-2216</td>
-      <td>-2</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>2002</th>
-      <td>1.037894e+05</td>
-      <td>57289</td>
-      <td>123</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>2001</th>
-      <td>4.650000e+04</td>
-      <td>-29960</td>
-      <td>-39</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>2000</th>
-      <td>7.646093e+04</td>
-      <td>-467</td>
-      <td>0</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>1999</th>
-      <td>7.692857e+04</td>
-      <td>19039</td>
-      <td>32</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>1998</th>
-      <td>5.788889e+04</td>
-      <td>-28222</td>
-      <td>-32</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1997</th>
-      <td>8.611100e+04</td>
-      <td>45111</td>
-      <td>110</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1996</th>
-      <td>4.100000e+04</td>
-      <td>-14000</td>
-      <td>-25</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1995</th>
-      <td>5.500000e+04</td>
-      <td>-17000</td>
-      <td>-23</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1994</th>
-      <td>7.200000e+04</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="With-the-increase-in-time-Number-of-Sold-Cars-of-Automatic-Cars-also-Increasing.">With the increase in time Number of Sold Cars of Automatic Cars also Increasing.<a class="anchor-link" href="#With-the-increase-in-time-Number-of-Sold-Cars-of-Automatic-Cars-also-Increasing.">&#182;</a></h5>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[373]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Transmission&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Sold&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Transmission&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[373]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>Sold</th>
-    </tr>
-    <tr>
-      <th>Year</th>
-      <th>Transmission</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="2" valign="top">2020</th>
-      <th>Manual</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2019</th>
-      <th>Manual</th>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>75</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2018</th>
-      <th>Manual</th>
-      <td>138</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>49</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2017</th>
-      <th>Manual</th>
-      <td>208</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>48</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2016</th>
-      <th>Manual</th>
-      <td>183</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>42</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2015</th>
-      <th>Manual</th>
-      <td>185</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2014</th>
-      <th>Manual</th>
-      <td>135</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2013</th>
-      <th>Manual</th>
-      <td>160</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>14</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2012</th>
-      <th>Manual</th>
-      <td>154</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2011</th>
-      <th>Manual</th>
-      <td>146</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2010</th>
-      <th>Manual</th>
-      <td>91</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2009</th>
-      <th>Manual</th>
-      <td>66</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2008</th>
-      <th>Manual</th>
-      <td>42</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2007</th>
-      <th>Manual</th>
-      <td>26</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2006</th>
-      <th>Manual</th>
-      <td>22</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2005</th>
-      <th>Manual</th>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2004</th>
-      <th>Manual</th>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>Automatic</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2003</th>
-      <th>Manual</th>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>2002</th>
-      <th>Manual</th>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>2001</th>
-      <th>Manual</th>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>2000</th>
-      <th>Manual</th>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>1999</th>
-      <th>Manual</th>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>1994</th>
-      <th>Manual</th>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Q6-Which-factors-which-might-help-in-Selling-Prices-?">Q6 Which factors which might help in Selling Prices ?<a class="anchor-link" href="#Q6-Which-factors-which-might-help-in-Selling-Prices-?">&#182;</a></h3>
+<h3 id="Q5-Which-factors-which-might-help-in-Selling-Prices-?">Q5 Which factors which might help in Selling Prices ?<a class="anchor-link" href="#Q5-Which-factors-which-might-help-in-Selling-Prices-?">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -16835,10 +16323,13 @@ memory usage: 1.5+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[374]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[379]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Owner&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># car_data[&#39;Selling_Price&#39;] = car_data[&#39;Selling_Price&#39;]/100000</span>
+<span class="n">car_owner</span> <span class="o">=</span> <span class="n">car_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Owner&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">car_owner</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_owner</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">100000</span>
+<span class="n">car_owner</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:</span><span class="s1">&#39;Selling_Price(in lakhs)&#39;</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -16854,7 +16345,7 @@ memory usage: 1.5+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[374]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[379]:</div>
 
 
 
@@ -16877,7 +16368,7 @@ memory usage: 1.5+ MB
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Selling_Price</th>
+      <th>Selling_Price(in lakhs)</th>
     </tr>
     <tr>
       <th>Owner</th>
@@ -16887,23 +16378,23 @@ memory usage: 1.5+ MB
   <tbody>
     <tr>
       <th>Test Drive Car</th>
-      <td>4.403800e+06</td>
+      <td>44.038000</td>
     </tr>
     <tr>
       <th>First Owner</th>
-      <td>7.899799e+05</td>
+      <td>7.899799</td>
     </tr>
     <tr>
       <th>Second Owner</th>
-      <td>4.012035e+05</td>
+      <td>4.012035</td>
     </tr>
     <tr>
       <th>Third Owner</th>
-      <td>2.931873e+05</td>
+      <td>2.931873</td>
     </tr>
     <tr>
       <th>Fourth &amp; Above Owner</th>
-      <td>2.331968e+05</td>
+      <td>2.331968</td>
     </tr>
   </tbody>
 </table>
@@ -16924,7 +16415,7 @@ memory usage: 1.5+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[375]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[380]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="mi">600</span>
@@ -17092,6 +16583,352 @@ memory usage: 1.5+ MB
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h5 id="Input-Checklist-for-User-based-on-the-Inputs">Input Checklist for User based on the Inputs<a class="anchor-link" href="#Input-Checklist-for-User-based-on-the-Inputs">&#182;</a></h5>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[381]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">paramter_check</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Brand&#39;</span><span class="p">,</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Region&#39;</span><span class="p">,</span><span class="s1">&#39;State_Name&#39;</span><span class="p">,</span><span class="s1">&#39;City_Name&#39;</span><span class="p">,</span><span class="s1">&#39;Seller_Type&#39;</span><span class="p">,</span><span class="s1">&#39;km_Driven&#39;</span><span class="p">,</span><span class="s1">&#39;Fuel&#39;</span><span class="p">,</span><span class="s1">&#39;Engine&#39;</span><span class="p">,</span><span class="s1">&#39;Seats&#39;</span><span class="p">,</span><span class="s1">&#39;Transmission&#39;</span><span class="p">,</span><span class="s1">&#39;Owner&#39;</span><span class="p">,</span><span class="s1">&#39;Mileage&#39;</span><span class="p">,</span><span class="s1">&#39;Max_Power&#39;</span><span class="p">]</span>
+
+<span class="n">km_Driven_range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">,</span> <span class="mi">40000</span><span class="p">,</span> <span class="mi">80000</span><span class="p">,</span><span class="mi">160000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">250000</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0-5K&#39;</span><span class="p">,</span> <span class="s1">&#39;5K-10K&#39;</span><span class="p">,</span> <span class="s1">&#39;10K-20K&#39;</span><span class="p">,</span> <span class="s1">&#39;20K-40K&#39;</span><span class="p">,</span> <span class="s1">&#39;40K-80K&#39;</span><span class="p">,</span><span class="s1">&#39;80K-160K&#39;</span><span class="p">,</span><span class="s1">&#39;160K-200K&#39;</span><span class="p">,</span><span class="s1">&#39;200K-250K&#39;</span><span class="p">,</span><span class="s1">&#39;250K+&#39;</span><span class="p">]</span>
+
+<span class="n">car_model_range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1999</span><span class="p">,</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">2011</span><span class="p">,</span> <span class="mi">2015</span><span class="p">,</span><span class="mi">2018</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span>
+
+<span class="n">names_model</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Antique(upto 1999)&#39;</span><span class="p">,</span> <span class="s1">&#39;Very Old(2000-2005)&#39;</span><span class="p">,</span> <span class="s1">&#39;Old(2006-2011)&#39;</span><span class="p">,</span><span class="s1">&#39;Moderate(2012-2015)&#39;</span><span class="p">,</span><span class="s1">&#39;Fair(2016-2018)&#39;</span><span class="p">,</span><span class="s1">&#39;New(2019+)&#39;</span><span class="p">]</span>
+
+<span class="c1"># car_min_selling_price = car_data.copy()</span>
+<span class="n">car_min_selling_price</span> <span class="o">=</span> <span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">paramter_check</span><span class="p">,</span><span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">})</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:</span><span class="s1">&#39;Min_Selling_Price_in_lakhs&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;km_Driven&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">])</span>
+<span class="n">car_min_selling_price</span><span class="o">.</span><span class="n">Min_Selling_Price_in_lakhs</span> <span class="o">=</span> <span class="n">car_min_selling_price</span><span class="o">.</span><span class="n">Min_Selling_Price_in_lakhs</span><span class="o">/</span><span class="mi">100000</span>
+
+<span class="n">car_min_selling_price</span><span class="p">[</span><span class="s1">&#39;km_Driven_range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">car_min_selling_price</span><span class="p">[</span><span class="s1">&#39;km_Driven&#39;</span><span class="p">],</span> <span class="n">km_Driven_range</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+
+<span class="n">car_min_selling_price</span><span class="p">[</span><span class="s1">&#39;approx_Mileage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_min_selling_price</span><span class="p">[</span><span class="s1">&#39;Mileage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">)</span>
+<span class="c1"># car_min_selling_price</span>
+<span class="n">car_min_selling_price</span><span class="p">[</span><span class="s1">&#39;approx_Mileage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_min_selling_price</span><span class="p">[</span><span class="s1">&#39;approx_Mileage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+<span class="n">car_min_selling_price</span><span class="o">.</span><span class="n">km_Driven_range</span> <span class="o">=</span> <span class="n">car_min_selling_price</span><span class="o">.</span><span class="n">km_Driven_range</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;object&#39;</span><span class="p">)</span>
+<span class="c1"># car_min_selling_price.car_model_range = car_min_selling_price.car_model_range.astype(&#39;object&#39;)</span>
+
+<span class="n">car_min_selling_price</span><span class="p">[</span><span class="s1">&#39;car_model_range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">car_min_selling_price</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">car_model_range</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">names_model</span><span class="p">)</span>
+<span class="c1"># paramter_check = [&#39;Brand&#39;,&#39;Year&#39;,&#39;Name&#39;,&#39;Region&#39;,&#39;State_Name&#39;,&#39;City_Name&#39;,&#39;Seller_Type&#39;,&#39;km_Driven&#39;,&#39;Fuel&#39;,&#39;Engine&#39;,&#39;Seats&#39;,&#39;Transmission&#39;,&#39;Owner&#39;,&#39;Mileage&#39;,&#39;Max_Power&#39;]</span>
+<span class="n">car_min_selling_price</span><span class="o">.</span><span class="n">car_model_range</span> <span class="o">=</span> <span class="n">car_min_selling_price</span><span class="o">.</span><span class="n">car_model_range</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;object&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># car_min_selling_price.info()</span>
+<span class="n">input_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Brand&#39;</span><span class="p">:</span><span class="s1">&#39;Maruti&#39;</span><span class="p">,</span><span class="s1">&#39;Fuel&#39;</span><span class="p">:</span><span class="s1">&#39;Diesel&#39;</span><span class="p">,</span><span class="s1">&#39;approx_Mileage&#39;</span><span class="p">:</span><span class="s1">&#39;25.0&#39;</span><span class="p">}</span>
+<span class="c1"># input_check = [&#39;Brand&#39;,&#39;Year&#39;,&#39;Name&#39;,&#39;Seller_Type&#39;,&#39;km_Driven&#39;,&#39;Mileage&#39;,&#39;Max_Power&#39;,&#39;Fuel&#39;,&#39;Engine&#39;,&#39;Seats&#39;,&#39;Transmission&#39;]</span>
+<span class="n">input_check</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Brand&#39;</span><span class="p">,</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Seller_Type&#39;</span><span class="p">,</span><span class="s1">&#39;km_Driven&#39;</span><span class="p">,</span><span class="s1">&#39;Mileage&#39;</span><span class="p">,</span><span class="s1">&#39;Max_Power&#39;</span><span class="p">,</span><span class="s1">&#39;Fuel&#39;</span><span class="p">,</span><span class="s1">&#39;Engine&#39;</span><span class="p">,</span><span class="s1">&#39;Seats&#39;</span><span class="p">,</span><span class="s1">&#39;Transmission&#39;</span><span class="p">,</span><span class="s1">&#39;Owner&#39;</span><span class="p">]</span>
+<span class="c1">#creating dynamic dataframe from the car_min_selling_price dataframe with the user input paramters to display minimum selling price for all brands</span>
+<span class="n">car_input_min_selling_price</span> <span class="o">=</span> <span class="n">car_min_selling_price</span><span class="p">[(</span><span class="n">car_min_selling_price</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">input_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">])]</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">input_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">car_min_selling_price</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">input_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">1</span><span class="p">])]</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">input_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">car_min_selling_price</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">input_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">2</span><span class="p">])]</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">input_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">2</span><span class="p">]))]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">car_input_min_selling_price</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Min_Selling_Price_in_lakhs&#39;</span><span class="p">],</span><span class="n">index</span> <span class="o">=</span><span class="n">input_check</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;car_model_range&#39;</span><span class="p">,</span><span class="s1">&#39;km_Driven_range&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[381]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th colspan="6" halign="left">Min_Selling_Price_in_lakhs</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>car_model_range</th>
+      <th colspan="5" halign="left">Fair(2016-2018)</th>
+      <th>New(2019+)</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>km_Driven_range</th>
+      <th>0-5K</th>
+      <th>10K-20K</th>
+      <th>20K-40K</th>
+      <th>40K-80K</th>
+      <th>80K-160K</th>
+      <th>5K-10K</th>
+    </tr>
+    <tr>
+      <th>Brand</th>
+      <th>Year</th>
+      <th>Name</th>
+      <th>Seller_Type</th>
+      <th>km_Driven</th>
+      <th>Mileage</th>
+      <th>Max_Power</th>
+      <th>Fuel</th>
+      <th>Engine</th>
+      <th>Seats</th>
+      <th>Transmission</th>
+      <th>Owner</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="10" valign="top">Maruti</th>
+      <th rowspan="9" valign="top">2016</th>
+      <th>Maruti Ertiga SHVS LDI Option</th>
+      <th>Individual</th>
+      <th>70000</th>
+      <th>24.52 kmpl</th>
+      <th>88.5 bhp</th>
+      <th>Diesel</th>
+      <th>1248 CC</th>
+      <th>7</th>
+      <th>Manual</th>
+      <th>Second Owner</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>7.56</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Maruti Ertiga SHVS VDI</th>
+      <th rowspan="2" valign="top">Individual</th>
+      <th>70000</th>
+      <th>24.52 kmpl</th>
+      <th>88.5 bhp</th>
+      <th>Diesel</th>
+      <th>1248 CC</th>
+      <th>7</th>
+      <th>Manual</th>
+      <th>Second Owner</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>7.78</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>80000</th>
+      <th>24.52 kmpl</th>
+      <th>88.5 bhp</th>
+      <th>Diesel</th>
+      <th>1248 CC</th>
+      <th>7</th>
+      <th>Manual</th>
+      <th>First Owner</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>7.50</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Maruti Ertiga SHVS ZDI Plus</th>
+      <th>Individual</th>
+      <th>70000</th>
+      <th>24.52 kmpl</th>
+      <th>88.5 bhp</th>
+      <th>Diesel</th>
+      <th>1248 CC</th>
+      <th>7</th>
+      <th>Manual</th>
+      <th>First Owner</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Maruti Vitara Brezza VDi</th>
+      <th>Individual</th>
+      <th>70000</th>
+      <th>24.3 kmpl</th>
+      <th>88.5 bhp</th>
+      <th>Diesel</th>
+      <th>1248 CC</th>
+      <th>5</th>
+      <th>Manual</th>
+      <th>First Owner</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>7.45</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Maruti Vitara Brezza ZDi Plus</th>
+      <th>Dealer</th>
+      <th>63000</th>
+      <th>24.3 kmpl</th>
+      <th>88.5 bhp</th>
+      <th>Diesel</th>
+      <th>1248 CC</th>
+      <th>5</th>
+      <th>Manual</th>
+      <th>First Owner</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>8.39</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">Maruti Vitara Brezza ZDi Plus Dual Tone</th>
+      <th rowspan="3" valign="top">Individual</th>
+      <th>60000</th>
+      <th>24.3 kmpl</th>
+      <th>88.5 bhp</th>
+      <th>Diesel</th>
+      <th>1248 CC</th>
+      <th>5</th>
+      <th>Manual</th>
+      <th>First Owner</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>7.80</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>90000</th>
+      <th>24.3 kmpl</th>
+      <th>88.5 bhp</th>
+      <th>Diesel</th>
+      <th>1248 CC</th>
+      <th>5</th>
+      <th>Manual</th>
+      <th>First Owner</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>8.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>110000</th>
+      <th>24.3 kmpl</th>
+      <th>88.5 bhp</th>
+      <th>Diesel</th>
+      <th>1248 CC</th>
+      <th>5</th>
+      <th>Manual</th>
+      <th>Second Owner</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>7.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <th>Maruti Ertiga SHVS VDI</th>
+      <th>Individual</th>
+      <th>80000</th>
+      <th>24.52 kmpl</th>
+      <th>88.5 bhp</th>
+      <th>Diesel</th>
+      <th>1248 CC</th>
+      <th>7</th>
+      <th>Manual</th>
+      <th>First Owner</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>7.20</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Task-1.3-(Statistical-Analysis-using-Python)">Task 1.3 (Statistical Analysis using Python)<a class="anchor-link" href="#Task-1.3-(Statistical-Analysis-using-Python)">&#182;</a></h2>
 </div>
 </div>
@@ -17102,7 +16939,7 @@ memory usage: 1.5+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[376]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[382]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
@@ -17121,7 +16958,7 @@ memory usage: 1.5+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[376]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[382]:</div>
 
 
 
@@ -17438,6 +17275,819 @@ memory usage: 1.5+ MB
 </div>
 </div>
 
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h5 id="How-Selling-Price-of-Cars-are-related-with-time-(Year)">How Selling Price of Cars are related with time (Year)<a class="anchor-link" href="#How-Selling-Price-of-Cars-are-related-with-time-(Year)">&#182;</a></h5><h5 id="As-per-the-below-query-we-saw-with-the-increae-in-th-number-of-sold-Cars-selling-Price-of-Cars-also-increased-with-time.">As per the below query we saw with the increae in th number of sold Cars selling Price of Cars also increased with time.<a class="anchor-link" href="#As-per-the-below-query-we-saw-with-the-increae-in-th-number-of-sold-Cars-selling-Price-of-Cars-also-increased-with-time.">&#182;</a></h5>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[383]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_year</span> <span class="o">=</span> <span class="n">car_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
+<span class="n">car_sold_year</span> <span class="o">=</span> <span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Sold&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
+<span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff_per&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">prv</span> <span class="o">=</span> <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>
+<span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">car_year</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">])</span><span class="o">-</span><span class="n">prv</span>
+    <span class="n">prv</span> <span class="o">=</span> <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff_per&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price_diff&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">prv</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">car_year</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39; and Year == index&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Cars_Sold&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">car_year</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">car_sold_year</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Cars_Sold&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_sold_year</span><span class="p">[</span><span class="s1">&#39;Sold&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+<span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_year</span><span class="p">[</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">100000</span>
+<span class="n">car_year</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Selling_Price&#39;</span><span class="p">:</span><span class="s1">&#39;Selling_Price(in lakhs)&#39;</span><span class="p">,</span><span class="s1">&#39;Selling_Price_diff&#39;</span><span class="p">:</span><span class="s1">&#39;Impact on Selling Price w.r.t previous Year&#39;</span><span class="p">,</span><span class="s1">&#39;Selling_Price_diff_per&#39;</span><span class="p">:</span><span class="s1">&#39;% Increase/Decrease in Selling Price&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[383]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Selling_Price(in lakhs)</th>
+      <th>Impact on Selling Price w.r.t previous Year</th>
+      <th>% Increase/Decrease in Selling Price</th>
+      <th>Cars_Sold</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020</th>
+      <td>8.852702</td>
+      <td>-891716</td>
+      <td>-100</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>17.769863</td>
+      <td>818802</td>
+      <td>46</td>
+      <td>154</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>9.581836</td>
+      <td>67990</td>
+      <td>7</td>
+      <td>187</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>8.901930</td>
+      <td>189875</td>
+      <td>21</td>
+      <td>256</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>7.003177</td>
+      <td>103547</td>
+      <td>14</td>
+      <td>225</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>5.967703</td>
+      <td>80094</td>
+      <td>13</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>5.166757</td>
+      <td>56011</td>
+      <td>10</td>
+      <td>144</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>4.606646</td>
+      <td>107521</td>
+      <td>23</td>
+      <td>174</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>3.531433</td>
+      <td>31046</td>
+      <td>8</td>
+      <td>159</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>3.220964</td>
+      <td>48085</td>
+      <td>14</td>
+      <td>155</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>2.740106</td>
+      <td>45201</td>
+      <td>16</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>2.288095</td>
+      <td>23249</td>
+      <td>10</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>2.055598</td>
+      <td>26453</td>
+      <td>12</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>1.791065</td>
+      <td>8644</td>
+      <td>4</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>1.704622</td>
+      <td>26705</td>
+      <td>15</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <td>1.437566</td>
+      <td>34347</td>
+      <td>23</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <td>1.094089</td>
+      <td>7836</td>
+      <td>7</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>1.015729</td>
+      <td>-2216</td>
+      <td>-2</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>1.037894</td>
+      <td>57289</td>
+      <td>55</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>0.465000</td>
+      <td>-29960</td>
+      <td>-64</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>0.764609</td>
+      <td>-467</td>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>0.769286</td>
+      <td>19039</td>
+      <td>24</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>0.578889</td>
+      <td>-28222</td>
+      <td>-48</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>0.861110</td>
+      <td>45111</td>
+      <td>52</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>0.410000</td>
+      <td>-14000</td>
+      <td>-34</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1995</th>
+      <td>0.550000</td>
+      <td>-17000</td>
+      <td>-30</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1994</th>
+      <td>0.720000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h5 id="With-the-increase-in-time-Number-of-Sold-Cars-of-Automatic-Cars-also-Increasing.">With the increase in time Number of Sold Cars of Automatic Cars also Increasing.<a class="anchor-link" href="#With-the-increase-in-time-Number-of-Sold-Cars-of-Automatic-Cars-also-Increasing.">&#182;</a></h5>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[384]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">car_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Sold == &#39;Y&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Transmission&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Sold&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">})</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Sold&#39;</span><span class="p">:</span><span class="s1">&#39;No. of Sold Cars&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span><span class="s1">&#39;Transmission&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[384]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>No. of Sold Cars</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th>Transmission</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">2020</th>
+      <th>Manual</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2019</th>
+      <th>Manual</th>
+      <td>79</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2018</th>
+      <th>Manual</th>
+      <td>138</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2017</th>
+      <th>Manual</th>
+      <td>208</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2016</th>
+      <th>Manual</th>
+      <td>183</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2015</th>
+      <th>Manual</th>
+      <td>185</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2014</th>
+      <th>Manual</th>
+      <td>135</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2013</th>
+      <th>Manual</th>
+      <td>160</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2012</th>
+      <th>Manual</th>
+      <td>154</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2011</th>
+      <th>Manual</th>
+      <td>146</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2010</th>
+      <th>Manual</th>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2009</th>
+      <th>Manual</th>
+      <td>66</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2008</th>
+      <th>Manual</th>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2007</th>
+      <th>Manual</th>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2006</th>
+      <th>Manual</th>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2005</th>
+      <th>Manual</th>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2004</th>
+      <th>Manual</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>Automatic</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <th>Manual</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <th>Manual</th>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <th>Manual</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <th>Manual</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <th>Manual</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1994</th>
+      <th>Manual</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Anova-Testing">Anova Testing<a class="anchor-link" href="#Anova-Testing">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[385]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iv</span> <span class="o">=</span> <span class="s1">&#39;City_Name&#39;</span>
+<span class="n">dv</span> <span class="o">=</span> <span class="s1">&#39;Selling_Price&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dv</span><span class="si">}</span><span class="s1"> ~ C(</span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">car_data</span><span class="p">[</span><span class="n">car_data</span><span class="p">[</span><span class="s1">&#39;Sold&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Y&#39;</span><span class="p">][[</span><span class="n">iv</span><span class="p">,</span><span class="n">dv</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">aov_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">display</span><span class="p">(</span><span class="n">aov_table</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">aov_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;PR(&gt;F)&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">.025</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We reject the hypothesis that </span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s2"> don&#39;t have any impact on Selling Price&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We cannot reject the hypothesis that </span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s2"> don&#39;t have any impact on Selling Price&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sum_sq</th>
+      <th>df</th>
+      <th>F</th>
+      <th>PR(&gt;F)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>C(City_Name)</th>
+      <td>2.041014e+13</td>
+      <td>28.0</td>
+      <td>0.928303</td>
+      <td>0.573457</td>
+    </tr>
+    <tr>
+      <th>Residual</th>
+      <td>1.547694e+15</td>
+      <td>1971.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>We cannot reject the hypothesis that City_Name don&#39;t have any impact on Selling Price
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[386]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iv</span> <span class="o">=</span> <span class="s1">&#39;Fuel&#39;</span>
+<span class="n">dv</span> <span class="o">=</span> <span class="s1">&#39;Selling_Price&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dv</span><span class="si">}</span><span class="s1"> ~ C(</span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">car_data</span><span class="p">[</span><span class="n">car_data</span><span class="p">[</span><span class="s1">&#39;Sold&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Y&#39;</span><span class="p">][[</span><span class="n">iv</span><span class="p">,</span><span class="n">dv</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">aov_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+
+<span class="k">if</span> <span class="n">aov_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;PR(&gt;F)&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">.025</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We reject the hypothesis that </span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s2"> don&#39;t have any impact on Selling Price&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We cannot reject the hypothesis that </span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s2"> don&#39;t have any impact on Selling Price&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>We reject the hypothesis that Fuel don&#39;t have any impact on Selling Price
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[387]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iv</span> <span class="o">=</span> <span class="s1">&#39;Transmission&#39;</span>
+<span class="n">dv</span> <span class="o">=</span> <span class="s1">&#39;Selling_Price&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dv</span><span class="si">}</span><span class="s1"> ~ C(</span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">car_data</span><span class="p">[</span><span class="n">car_data</span><span class="p">[</span><span class="s1">&#39;Sold&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Y&#39;</span><span class="p">][[</span><span class="n">iv</span><span class="p">,</span><span class="n">dv</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">aov_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="k">if</span> <span class="n">aov_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;PR(&gt;F)&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">.025</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We reject the hypothesis that </span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s2"> don&#39;t have any impact on Selling Price&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We cannot reject the hypothesis that </span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s2"> don&#39;t have any impact on Selling Price&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>We reject the hypothesis that Transmission don&#39;t have any impact on Selling Price
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[388]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iv</span> <span class="o">=</span> <span class="s1">&#39;Owner&#39;</span>
+<span class="n">dv</span> <span class="o">=</span> <span class="s1">&#39;Selling_Price&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dv</span><span class="si">}</span><span class="s1"> ~ C(</span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">car_data</span><span class="p">[</span><span class="n">car_data</span><span class="p">[</span><span class="s1">&#39;Sold&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Y&#39;</span><span class="p">][[</span><span class="n">iv</span><span class="p">,</span><span class="n">dv</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">aov_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="c1"># display(aov_table)</span>
+
+<span class="k">if</span> <span class="n">aov_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;PR(&gt;F)&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">.025</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We reject the hypothesis that </span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s2"> don&#39;t have any impact on Selling Price&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We cannot reject the hypothesis that </span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s2"> don&#39;t have any impact on Selling Price&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>We reject the hypothesis that Owner don&#39;t have any impact on Selling Price
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[389]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iv</span> <span class="o">=</span> <span class="s1">&#39;Year&#39;</span>
+<span class="n">dv</span> <span class="o">=</span> <span class="s1">&#39;Selling_Price&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dv</span><span class="si">}</span><span class="s1"> ~ C(</span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">car_data</span><span class="p">[</span><span class="n">car_data</span><span class="p">[</span><span class="s1">&#39;Sold&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Y&#39;</span><span class="p">][[</span><span class="n">iv</span><span class="p">,</span><span class="n">dv</span><span class="p">]])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">aov_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="c1"># display(aov_table)</span>
+
+<span class="k">if</span> <span class="n">aov_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;PR(&gt;F)&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">.025</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We reject the hypothesis that </span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s2"> don&#39;t have any impact on Selling Price&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We cannot reject the hypothesis that </span><span class="si">{</span><span class="n">iv</span><span class="si">}</span><span class="s2"> don&#39;t have any impact on Selling Price&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>We reject the hypothesis that Year don&#39;t have any impact on Selling Price
+</pre>
+</div>
 </div>
 
 </div>

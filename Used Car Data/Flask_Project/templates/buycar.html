@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Buy Car</title>
+        <link rel="stylesheet" type="text/css" href="/static/mystyle.css">
+
+        <script>
+            function show_value1(x)
+                {
+                document.getElementById("slider_value1").innerHTML=x;
+                }
+            function show_value2(x)
+                {
+                document.getElementById("slider_value2").innerHTML=x;
+                }
+            function show_value3(x)
+                {
+                document.getElementById("slider_value3").innerHTML=x;
+                }
+        </script>
+    </head>
+    <body class="body-style">
+        <div>
+            <div class="heading">
+                <img class="fixed-logo" src="/static/img/Skidding_car_lo.png">
+                <div class="heading-data"><img style="width: 170px;" src="/static/img/images.jpg"></div>
+            </div>
+            <div class="container-login100">
+                <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+                <form class="login100-form validate-form flex-sb flex-w" action="/priceofcar" method = "post" style="padding: 25px;">
+                    <span class="login100-form-title p-b-32">
+					What type of car you would like to buy please fill the below form:- 
+                    </span>
+                    <br>
+                    <div></div>
+                    <span class="txt1 p-b-11">
+						Km Driven:
+					</span>
+                    <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+                        <label class="txt1 p-b-11">(between 0 and 60000):</label>
+                    <input type="range", placeholder="Km Driven by car", name='kmDriven', min = "0", max="60000", onchange="show_value1(this.value);"/>
+                    <span id="slider_value1" style="color:#86BC25;"></span>
+                    </div>
+                    <br>
+                    <span class="txt1 p-b-11">
+						Seats:
+					</span>
+                    <div class="wrap-input100 validate-input m-b-36">
+                    <input type="number", placeholder="Seats", name='seats'/>
+                    </div>
+                    <br>
+                    <span class="txt1 p-b-11">
+						Mileage:
+					</span>
+                    <div class="wrap-input100 validate-input m-b-36">
+                        <label class="txt1 p-b-11">(between 0 and 100):</label>
+                    <input type="range", placeholder="Mileage", name='mileage', min = "0", max="100", onchange="show_value2(this.value);"/>
+                    <span id="slider_value2" style="color:#86BC25;"></span>
+                    </div>
+                    <br>
+                    <span class="txt1 p-b-11">
+						Power:
+					</span>
+                    <div class="wrap-input100 validate-input m-b-36">
+                        <label class="txt1 p-b-11">(between 0 and 500):</label>
+                    <input type="range", placeholder="power", name='power', min = "0", max="500" , onchange="show_value3(this.value);"/>
+                    <span id="slider_value3" style="color:#86BC25;"></span>
+                    </div>
+                    <br>
+                    <span class="txt1 p-b-11">
+						Engine:
+					</span>
+                    <div class="wrap-input100 validate-input m-b-36">
+                    <input type="text", placeholder="Engine", name='engine' />
+                    </div>
+                    <br>
+                    <span class="txt1 p-b-11">
+						Fuel:
+					</span>
+                    <div class="wrap-input100 validate-input m-b-36">
+                    <select name="fuel">
+                        <option value="Diesel"> Diesel </option>
+                        <option value="Petrol"> Petrol </option>
+                        <option value="LPG"> LPG </option>
+                        <option value="CNG"> CNG </option>
+                    </select>
+                    </div>
+                    <br>
+                    <span class="txt1 p-b-11">
+						Seller Type:
+					</span>
+                    <div class="wrap-input100 validate-input m-b-36">
+                    <select name="sellertype">
+                        <option value="Individual"> Individual </option>
+                        <option value="Dealer"> Dealer </option>
+                        <option value="Trustmark Dealer"> Trustmark Dealer </option>
+                    </select>
+                    </div>
+                    <br>
+                    <span class="txt1 p-b-11">
+						transmission:
+					</span>
+                    <div class="wrap-input100 validate-input m-b-36">
+                    <select name="transmission">
+                        <option value="Manual"> Manual </option>
+                        <option value="Automatic"> Automatic </option>
+                    </select>
+                </div>
+                    <br>
+                    <span class="txt1 p-b-11">
+						Owner:
+					</span>
+                    <div class="wrap-input100 validate-input m-b-36">
+                    <select name="owner">
+                        <option value="First Owner"> First Owner </option>
+                        <option value="Second Owner"> Second Owner </option>
+                        <option value="Third Owner"> Third Owner </option>
+                        <option value="Fourth & Above Owner"> Fourth & Above Owner </option>
+                        <option value="Test Drive Car"> Test Drive Car </option>
+                    </select>
+                </div>
+                    <br>
+                    <span class="txt1 p-b-11">
+						City_Name:
+					</span>
+                    <div class="wrap-input100 validate-input m-b-36">
+                    <input type="text", placeholder="City", name='city' />
+                    </div>
+                    <br>
+                    <span class="txt1 p-b-11">
+						Brand:
+					</span>
+                    <div class="wrap-input100 validate-input m-b-36">
+                    <input type="text", placeholder="Brand", name='brand' />
+                    </div>
+                    <br>
+                    <input class="login100-form-btn" type="submit">
+        
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
